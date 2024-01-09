@@ -11,6 +11,8 @@ const currentPage = ref(1);
 const sortedProducts = ref([]);
 const displayedProducts = ref([]);
 
+store.product = null
+
 const compareByPrice = (a, b) => a.price - b.price;
 const compareByName = (a, b) => a.title.localeCompare(b.title);
 const compareByStock = (a, b) => a.stock - b.stock;

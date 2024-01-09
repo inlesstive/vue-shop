@@ -8,6 +8,8 @@ const filterController = ref(null);
 const itemsPerPage = 12;
 const currentPage = ref(1);
 
+store.getProducts();
+
 const sortedProducts = ref([]);
 const displayedProducts = ref([]);
 
@@ -18,9 +20,8 @@ const compareByName = (a, b) => a.title.localeCompare(b.title);
 const compareByStock = (a, b) => a.stock - b.stock;
 
 onMounted(async () => {
-  await store.getProducts();
-
-  sortedProducts.value = [...store.products];
+  
+  sortedProducts.value = store.products;
   updateDisplayedProducts();
 
   watch(filterController, (newValue, oldValue) => {

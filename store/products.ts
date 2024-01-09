@@ -12,7 +12,7 @@ export const useProductsStore = defineStore("products", {
         const respone = await axios.get(
           "https://dummyjson.com/products?&limit=100"
         );
-        this.products = respone.data;
+        this.products = respone.data.products;
       } catch (err) {
         console.log(err);
       }
